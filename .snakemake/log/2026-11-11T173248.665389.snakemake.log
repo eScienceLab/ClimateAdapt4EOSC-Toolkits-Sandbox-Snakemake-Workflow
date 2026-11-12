@@ -1,0 +1,205 @@
+Assuming unrestricted shared filesystem usage.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-11 17:32:48
+  Workflow ID: 219d9cfc-a205-418e-942e-e7a98e7296da
+  Platform: macOS-26.7.3-arm64-arm-64bit
+  Host: C-LOSXFX267.local
+  User: g05296ar
+  Snakemake version: 9.27.1
+  Python version: 3.11.18 (main, Oct 26 2026, 11:32:31) [Clang 21.1.8 ]
+  Command: /Users/user/miniconda3/envs/cordex-snakemake/bin/snakemake --cores 6
+  Snakefile: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/Snakefile
+  Base directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Run directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Working directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Config file(s): ['config/config.yaml']
+  Config MD5: dd1457448fad77cb90eb8742d90ba7ac
+
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+annual_aggregate       14
+all                     1
+total                  15
+
+Select jobs to execute...
+Execute 6 jobs...
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    jobid: 34
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=maximum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/10m_wind_speed-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_10m_wind_speed-2005-2007.nc
+    jobid: 1
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_10m_wind_speed-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=10m_wind_speed, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/2m_air_temperature-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_air_temperature-2005-2007.nc
+    jobid: 25
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_air_temperature-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=2m_air_temperature, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    jobid: 10
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=minimum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/mean_precipitation_flux-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    jobid: 37
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=sum, variable=mean_precipitation_flux, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:49 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    jobid: 31
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=minimum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 37 (Rule: annual_aggregate)
+1 of 15 steps (7%) done
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 1 (Rule: annual_aggregate)
+2 of 15 steps (13%) done
+Execute 2 jobs...
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/10m_wind_speed-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_10m_wind_speed-2005-2007.nc
+    jobid: 22
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_10m_wind_speed-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=10m_wind_speed, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/2m_relative_humidity-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    jobid: 7
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 31 (Rule: annual_aggregate)
+3 of 15 steps (20%) done
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 10 (Rule: annual_aggregate)
+4 of 15 steps (27%) done
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 34 (Rule: annual_aggregate)
+5 of 15 steps (33%) done
+[Wed Nov 11 17:32:51 2026]
+Finished jobid: 25 (Rule: annual_aggregate)
+6 of 15 steps (40%) done
+Select jobs to execute...
+Execute 4 jobs...
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/2m_relative_humidity-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    jobid: 28
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    jobid: 13
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=maximum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_8.5/rcp_8.5/surface_solar_radiation_downwards-2005-2007.nc
+    output: output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    jobid: 40
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, agg_type=mean, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:51 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/mean_precipitation_flux-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    jobid: 16
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=sum, variable=mean_precipitation_flux, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:32:52 2026]
+Finished jobid: 28 (Rule: annual_aggregate)
+7 of 15 steps (47%) done
+[Wed Nov 11 17:32:52 2026]
+Finished jobid: 22 (Rule: annual_aggregate)
+8 of 15 steps (53%) done
+Execute 2 jobs...
+[Wed Nov 11 17:32:53 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/surface_solar_radiation_downwards-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    jobid: 19
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:53 2026]
+localrule annual_aggregate:
+    input: output_cropped_rcp_4.5/rcp_4.5/2m_air_temperature-2005-2007.nc
+    output: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_air_temperature-2005-2007.nc
+    jobid: 4
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_air_temperature-2005-2007.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, agg_type=mean, variable=2m_air_temperature, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:53 2026]
+Finished jobid: 40 (Rule: annual_aggregate)
+9 of 15 steps (60%) done
+[Wed Nov 11 17:32:53 2026]
+Finished jobid: 16 (Rule: annual_aggregate)
+10 of 15 steps (67%) done
+[Wed Nov 11 17:32:53 2026]
+Finished jobid: 13 (Rule: annual_aggregate)
+11 of 15 steps (73%) done
+[Wed Nov 11 17:32:53 2026]
+Finished jobid: 7 (Rule: annual_aggregate)
+12 of 15 steps (80%) done
+[Wed Nov 11 17:32:54 2026]
+Finished jobid: 19 (Rule: annual_aggregate)
+13 of 15 steps (87%) done
+[Wed Nov 11 17:32:54 2026]
+Finished jobid: 4 (Rule: annual_aggregate)
+14 of 15 steps (93%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Nov 11 17:32:54 2026]
+localrule all:
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_10m_wind_speed-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_air_temperature-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_10m_wind_speed-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_air_temperature-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_sum_mean_precipitation_flux-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    jobid: 0
+    reason: Input files updated by another job: output_cropped_rcp_8.5/rcp_8.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_10m_wind_speed-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_sum_mean_precipitation_flux-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_air_temperature-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc, output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_10m_wind_speed-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_minimum_2m_temperature_in_the_last_24_hours-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc, output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_air_temperature-2005-2007.nc
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:32:54 2026]
+Finished jobid: 0 (Rule: all)
+15 of 15 steps (100%) done
+Complete log(s): /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/log/2026-11-11T173248.665389.snakemake.log
+Elapsed time: 0:00:05.895438

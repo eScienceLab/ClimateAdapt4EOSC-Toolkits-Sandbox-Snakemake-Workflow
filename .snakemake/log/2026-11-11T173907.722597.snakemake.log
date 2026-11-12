@@ -1,0 +1,140 @@
+Assuming unrestricted shared filesystem usage.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-11 17:39:07
+  Workflow ID: 30889966-53ef-4d2b-a2b2-6f18fc95c633
+  Platform: macOS-26.7.3-arm64-arm-64bit
+  Host: C-LOSXFX267.local
+  User: g05296ar
+  Snakemake version: 9.27.1
+  Python version: 3.11.18 (main, Oct 26 2026, 11:32:31) [Clang 21.1.8 ]
+  Command: /Users/user/miniconda3/envs/cordex-snakemake/bin/snakemake --cores 6
+  Snakefile: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/Snakefile
+  Base directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Run directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Working directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Config file(s): ['config/config.yaml']
+  Config MD5: dd1457448fad77cb90eb8742d90ba7ac
+
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                               count
+------------------------------  -------
+merge_historical_and_scenarios       14
+all                                   1
+total                                15
+
+Select jobs to execute...
+Execute 6 jobs...
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007_rcp_4.5.nc
+    jobid: 21
+    reason: Missing output files: output_final_merged/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007_rcp_4.5.nc
+    wildcards: scenario=rcp_4.5, agg_type=sum, variable=mean_precipitation_flux, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_4.5.nc
+    jobid: 25
+    reason: Missing output files: output_final_merged/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_4.5.nc
+    wildcards: scenario=rcp_4.5, agg_type=mean, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007_rcp_4.5.nc
+    jobid: 9
+    reason: Missing output files: output_final_merged/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007_rcp_4.5.nc
+    wildcards: scenario=rcp_4.5, agg_type=mean, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    output: output_final_merged/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007_rcp_8.5.nc
+    jobid: 37
+    reason: Missing output files: output_final_merged/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007_rcp_8.5.nc
+    wildcards: scenario=rcp_8.5, agg_type=mean, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007_rcp_4.5.nc
+    jobid: 17
+    reason: Missing output files: output_final_merged/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007_rcp_4.5.nc
+    wildcards: scenario=rcp_4.5, agg_type=mean, variable=maximum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:39:08 2026]
+localrule merge_historical_and_scenarios:
+    input: output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    output: output_final_merged/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_8.5.nc
+    jobid: 53
+    reason: Missing output files: output_final_merged/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_8.5.nc
+    wildcards: scenario=rcp_8.5, agg_type=mean, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmpis1hbm5e.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 9
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_2m_relative_humidity-2005-2007_rcp_4.5.nc
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmppg91y5wn.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmpkpaub0ne.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 37
+    input: output_cropped_rcp_8.5/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007.nc
+    output: output_final_merged/rcp_8.5/annual_mean_2m_relative_humidity-2005-2007_rcp_8.5.nc
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 17
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_maximum_2m_temperature_in_the_last_24_hours-2005-2007_rcp_4.5.nc
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmph6bypgwb.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmpul7rg9su.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 21
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_sum_mean_precipitation_flux-2005-2007_rcp_4.5.nc
+RuleException:
+CalledProcessError in file "/Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/rules/download_crop.smk", line 46:
+Command 'set -euo pipefail;  /Users/user/miniconda3/envs/cordex-snakemake/bin/python /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/scripts/tmpx635v4qn.merge_historical_and_scenarios.py' returned non-zero exit status 1.
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 25
+    input: output_cropped_rcp_4.5/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    output: output_final_merged/rcp_4.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_4.5.nc
+[Wed Nov 11 17:39:09 2026]
+Error in rule merge_historical_and_scenarios:
+    message: None
+    jobid: 53
+    input: output_cropped_rcp_8.5/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007.nc
+    output: output_final_merged/rcp_8.5/annual_mean_surface_solar_radiation_downwards-2005-2007_rcp_8.5.nc
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error messages
+Complete log(s): /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/log/2026-11-11T173907.722597.snakemake.log
+Elapsed time: 0:00:01.988405
+WorkflowError:
+At least one job did not complete successfully.
