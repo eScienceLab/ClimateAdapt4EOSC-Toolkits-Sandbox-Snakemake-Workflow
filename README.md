@@ -1,4 +1,3 @@
-```markdown
 # CORDEX Climate Data Processing Workflow
 
 This repository contains a Snakemake workflow for downloading, cropping, merging, and aggregating CORDEX climate data.
