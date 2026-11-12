@@ -15,6 +15,8 @@ dependencies = [
     "netcdf4",
     "pandas",
     "numpy",
+    "dask",
+    "distributed",
 ]
 
 # Explicitly disable package discovery for workflow directories
