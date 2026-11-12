@@ -54,10 +54,12 @@ CDSAPI_KEY=YOUR_USER_ID:YOUR_API_KEY
 
 ```
 
+Or you can use the file `.env-example` provided to you. Update your API Key in the file and then rename it to `.env`
+
 ## Running the Workflow
 
 1. **Execute the workflow** using multiple CPU cores:
 ```bash
-snakemake --cores 6
+snakemake --cores <No. of Cores you want to use>
 
 ```
