@@ -6,13 +6,11 @@ import cdsapi
 import requests
 import shutil
 
-# Snakemake passes the injected config automatically
+
 client = cdsapi.Client(
     url=snakemake.config.get("cds_url"),
     key=snakemake.config.get("cds_key")
 )
-
-# ===================== EXACT HELPER FUNCTIONS FROM CELL 2 =====================
 
 def ensure_dir(p):
     p = Path(p)
