@@ -1,0 +1,197 @@
+Assuming unrestricted shared filesystem usage.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-11 17:14:41
+  Workflow ID: 2743772f-e8f1-4b60-bdea-00d0eac121dc
+  Platform: macOS-26.7.3-arm64-arm-64bit
+  Host: C-LOSXFX267.local
+  User: g05296ar
+  Snakemake version: 9.27.1
+  Python version: 3.11.18 (main, Oct 26 2026, 11:32:31) [Clang 21.1.8 ]
+  Command: /Users/user/miniconda3/envs/cordex-snakemake/bin/snakemake --cores 6
+  Snakefile: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/Snakefile
+  Base directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Run directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Working directory: /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow
+  Config file(s): ['config/config.yaml']
+  Config MD5: dd1457448fad77cb90eb8742d90ba7ac
+
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+download_crop       14
+all                  1
+total               15
+
+Select jobs to execute...
+Execute 6 jobs...
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/10m_wind_speed_2005_2007_CROPPED.nc
+    jobid: 8
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/10m_wind_speed_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=10m_wind_speed, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/2m_relative_humidity_2005_2007_CROPPED.nc
+    jobid: 3
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/2m_relative_humidity_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/mean_precipitation_flux_2005_2007_CROPPED.nc
+    jobid: 13
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/mean_precipitation_flux_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=mean_precipitation_flux, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    jobid: 11
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=minimum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    jobid: 12
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=maximum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:14:41 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/10m_wind_speed_2005_2007_CROPPED.nc
+    jobid: 1
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/10m_wind_speed_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=10m_wind_speed, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:16:19 2026]
+Finished jobid: 13 (Rule: download_crop)
+1 of 15 steps (7%) done
+[Wed Nov 11 17:16:19 2026]
+Finished jobid: 12 (Rule: download_crop)
+2 of 15 steps (13%) done
+Execute 2 jobs...
+[Wed Nov 11 17:16:19 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/2m_relative_humidity_2005_2007_CROPPED.nc
+    jobid: 10
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/2m_relative_humidity_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=2m_relative_humidity, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:16:19 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    jobid: 5
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=maximum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:16:19 2026]
+Finished jobid: 3 (Rule: download_crop)
+3 of 15 steps (20%) done
+[Wed Nov 11 17:16:19 2026]
+Finished jobid: 1 (Rule: download_crop)
+4 of 15 steps (27%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Wed Nov 11 17:16:19 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc
+    jobid: 14
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:16:19 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/mean_precipitation_flux_2005_2007_CROPPED.nc
+    jobid: 6
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/mean_precipitation_flux_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=mean_precipitation_flux, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:16:21 2026]
+Finished jobid: 8 (Rule: download_crop)
+5 of 15 steps (33%) done
+Execute 1 jobs...
+[Wed Nov 11 17:16:21 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc
+    jobid: 7
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=surface_solar_radiation_downwards, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:16:54 2026]
+Finished jobid: 11 (Rule: download_crop)
+6 of 15 steps (40%) done
+Execute 1 jobs...
+[Wed Nov 11 17:16:54 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    jobid: 4
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=minimum_2m_temperature_in_the_last_24_hours, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:17:30 2026]
+Finished jobid: 5 (Rule: download_crop)
+7 of 15 steps (47%) done
+Execute 1 jobs...
+[Wed Nov 11 17:17:30 2026]
+localrule download_crop:
+    output: output_cropped_rcp_4.5/rcp_4.5/2m_air_temperature_2005_2007_CROPPED.nc
+    jobid: 2
+    reason: Missing output files: output_cropped_rcp_4.5/rcp_4.5/2m_air_temperature_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_4.5, scenario=rcp_4.5, variable=2m_air_temperature, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+Select jobs to execute...
+[Wed Nov 11 17:17:35 2026]
+Finished jobid: 10 (Rule: download_crop)
+8 of 15 steps (53%) done
+Execute 1 jobs...
+[Wed Nov 11 17:17:35 2026]
+localrule download_crop:
+    output: output_cropped_rcp_8.5/rcp_8.5/2m_air_temperature_2005_2007_CROPPED.nc
+    jobid: 9
+    reason: Missing output files: output_cropped_rcp_8.5/rcp_8.5/2m_air_temperature_2005_2007_CROPPED.nc
+    wildcards: out_dir=output_cropped_rcp_8.5, scenario=rcp_8.5, variable=2m_air_temperature, year_start=2005, year_end=2007
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:17:46 2026]
+Finished jobid: 14 (Rule: download_crop)
+9 of 15 steps (60%) done
+[Wed Nov 11 17:18:04 2026]
+Finished jobid: 7 (Rule: download_crop)
+10 of 15 steps (67%) done
+[Wed Nov 11 17:18:29 2026]
+Finished jobid: 4 (Rule: download_crop)
+11 of 15 steps (73%) done
+[Wed Nov 11 17:18:37 2026]
+Finished jobid: 2 (Rule: download_crop)
+12 of 15 steps (80%) done
+[Wed Nov 11 17:18:46 2026]
+Finished jobid: 6 (Rule: download_crop)
+13 of 15 steps (87%) done
+[Wed Nov 11 17:19:06 2026]
+Finished jobid: 9 (Rule: download_crop)
+14 of 15 steps (93%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Nov 11 17:19:06 2026]
+localrule all:
+    input: output_cropped_rcp_4.5/rcp_4.5/10m_wind_speed_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/2m_air_temperature_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/2m_relative_humidity_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/mean_precipitation_flux_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/10m_wind_speed_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/2m_air_temperature_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/2m_relative_humidity_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/mean_precipitation_flux_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc
+    jobid: 0
+    reason: Input files updated by another job: output_cropped_rcp_4.5/rcp_4.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/2m_relative_humidity_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/2m_air_temperature_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/10m_wind_speed_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/mean_precipitation_flux_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/surface_solar_radiation_downwards_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/maximum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/10m_wind_speed_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/mean_precipitation_flux_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/2m_air_temperature_2005_2007_CROPPED.nc, output_cropped_rcp_4.5/rcp_4.5/2m_relative_humidity_2005_2007_CROPPED.nc, output_cropped_rcp_8.5/rcp_8.5/minimum_2m_temperature_in_the_last_24_hours_2005_2007_CROPPED.nc
+    resources: tmpdir=/var/folders/x5/6d0gqvrs4jl9lmdqpsfxld_r0000gp/T
+[Wed Nov 11 17:19:06 2026]
+Finished jobid: 0 (Rule: all)
+15 of 15 steps (100%) done
+Complete log(s): /Users/user/ClimateAdapt4EOSC-Toolkits-Sandbox-Snakemake-Workflow/.snakemake/log/2026-11-11T171441.663273.snakemake.log
+Elapsed time: 0:04:25.162412
