@@ -1,0 +1,43 @@
+# Bounding box (lat/lon)
+lat_min: 37.92
+lat_max: 38.05
+lon_min: 23.62
+lon_max: 23.75
+
+# Years configuration
+start_year: 2005
+end_year: 2007
+step: 5
+download_months: ["01", "02"] #, "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+
+# Dataset parameters
+dataset: "projections-cordex-domains-single-levels"
+domain: "europe"
+resolution: "0_11_degree_x_0_11_degree"
+temporal: "daily_mean"
+gcm: "ichec_ec_earth"
+rcm: "knmi_racmo22e"
+ensemble: "r1i1p1"
+
+cds_variables:
+  - "10m_wind_speed"
+  - "2m_air_temperature"
+  - "2m_relative_humidity"
+  - "minimum_2m_temperature_in_the_last_24_hours"
+  - "maximum_2m_temperature_in_the_last_24_hours"
+  - "mean_precipitation_flux"
+  - "surface_solar_radiation_downwards"
+
+selected_scenarios:
+  - "rcp_4.5"
+  - "rcp_8.5"
+
+scenarios:
+  rcp_4.5:
+    experiment: "rcp_4_5"
+    out_dir: "output_cropped_rcp_4.5"
+    work_dir: "_tmp_download_rcp_4.5"
+  rcp_8.5:
+    experiment: "rcp_8_5"
+    out_dir: "output_cropped_rcp_8.5"
+    work_dir: "_tmp_download_rcp_8.5"
