@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "climate-adapt-workflow"
+version = "0.1.0"
+description = "Snakemake workflow for CORDEX climate data processing"
+requires-python = ">=3.10"
+dependencies = [
+    "snakemake",
+    "cdsapi",
+    "python-dotenv",
+    "xarray",
+    "netcdf4",
+    "pandas",
+    "numpy",
+]
+
+# Explicitly disable package discovery for workflow directories
+[tool.setuptools]
+packages = []
