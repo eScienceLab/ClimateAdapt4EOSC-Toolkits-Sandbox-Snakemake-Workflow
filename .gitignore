@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# Environment variables / secrets
+.env
+
 # Jupyter
 .ipynb_checkpoints/
 
