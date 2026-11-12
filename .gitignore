@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# CDS credentials
+.cdsapirc
+.env
+
+# Temporary downloads
+_tmp_download/
+_tmp_download_*/
+*.zip
+
+# Snakemake
+.snakemake/
+
+# Generated outputs
+results/
+output_cropped/
+output_cropped_rcp_4.5/
+output_cropped_rcp_8.5/
+output_final_merged/
