@@ -6,11 +6,10 @@ import cdsapi
 import requests
 import shutil
 
-
 client = cdsapi.Client(
-    url=snakemake.config.get("cds_url"),
-    key=snakemake.config.get("cds_key")
+    url=snakemake.config.get("cds_url"), key=snakemake.config.get("cds_key")
 )
+
 
 def ensure_dir(p):
     p = Path(p)
@@ -37,9 +36,19 @@ def _is_aux_name(p: Path) -> bool:
 
 def pick_main_nc(nc_files: list[Path]) -> Path:
     ignore_vars = {
-        "bounds_lon", "bounds_lat", "lon_bnds", "lat_bnds", "bnds",
-        "lat", "lon", "time", "rlat", "rlon",
-        "rotated_pole", "rotated_latitude_longitude", "crs"
+        "bounds_lon",
+        "bounds_lat",
+        "lon_bnds",
+        "lat_bnds",
+        "bnds",
+        "lat",
+        "lon",
+        "time",
+        "rlat",
+        "rlon",
+        "rotated_pole",
+        "rotated_latitude_longitude",
+        "crs",
     }
 
     candidates = []
@@ -80,11 +89,20 @@ def find_lat_lon_names(ds: xr.Dataset):
 
 def pick_main_data_var(ds: xr.Dataset, lat: xr.DataArray, lon: xr.DataArray) -> str:
     ignore = {
-        "bounds_lon", "bounds_lat", "lon_bnds", "lat_bnds", "bnds",
-        "lon", "lat", "time", "height",
-        "rlon", "rlat",
-        "rotated_pole", "rotated_latitude_longitude",
-        "crs"
+        "bounds_lon",
+        "bounds_lat",
+        "lon_bnds",
+        "lat_bnds",
+        "bnds",
+        "lon",
+        "lat",
+        "time",
+        "height",
+        "rlon",
+        "rlat",
+        "rotated_pole",
+        "rotated_latitude_longitude",
+        "crs",
     }
 
     grid_dims = tuple(lat.dims)
@@ -117,7 +135,7 @@ def crop_to_bbox(
     lat_min: float,
     lat_max: float,
     lon_min: float,
-    lon_max: float
+    lon_max: float,
 ) -> xr.Dataset:
     lat_name, lon_name = find_lat_lon_names(ds)
     lat = ds[lat_name]
@@ -126,15 +144,18 @@ def crop_to_bbox(
 
     # ---- Case 1: 1D lat/lon ----
     if lat.ndim == 1 and lon.ndim == 1:
+
         def _slice_1d(coord, vmin, vmax):
             c0 = float(coord.values[0])
             c1 = float(coord.values[-1])
             return slice(vmin, vmax) if c0 <= c1 else slice(vmax, vmin)
 
-        cut = da.sel({
-            lat_name: _slice_1d(lat, lat_min, lat_max),
-            lon_name: _slice_1d(lon, lon_min, lon_max)
-        })
+        cut = da.sel(
+            {
+                lat_name: _slice_1d(lat, lat_min, lat_max),
+                lon_name: _slice_1d(lon, lon_min, lon_max),
+            }
+        )
 
         if cut.size == 0:
             target_lat = (lat_min + lat_max) / 2.0
@@ -143,10 +164,12 @@ def crop_to_bbox(
             lat_idx = int(np.abs(lat.values - target_lat).argmin())
             lon_idx = int(np.abs(lon.values - target_lon).argmin())
 
-            cut = da.isel({
-                lat_name: slice(lat_idx, lat_idx + 1),
-                lon_name: slice(lon_idx, lon_idx + 1)
-            })
+            cut = da.isel(
+                {
+                    lat_name: slice(lat_idx, lat_idx + 1),
+                    lon_name: slice(lon_idx, lon_idx + 1),
+                }
+            )
 
             print(
                 f"⚠️ Το bbox δεν περιείχε grid point. "
@@ -160,15 +183,16 @@ def crop_to_bbox(
     grid_dims = lat.dims
 
     if lon.dims != grid_dims:
-        raise ValueError(f"lat dims={lat.dims} αλλά lon dims={lon.dims} — δεν ταιριάζουν.")
+        raise ValueError(
+            f"lat dims={lat.dims} αλλά lon dims={lon.dims} — δεν ταιριάζουν."
+        )
 
     if not all(d in da.dims for d in grid_dims):
-        raise ValueError(f"The variable '{varname}' does not have the grid dims {grid_dims}. var dims={da.dims}")
+        raise ValueError(
+            f"The variable '{varname}' does not have the grid dims {grid_dims}. var dims={da.dims}"
+        )
 
-    mask = (
-        (lat >= lat_min) & (lat <= lat_max) &
-        (lon >= lon_min) & (lon <= lon_max)
-    )
+    mask = (lat >= lat_min) & (lat <= lat_max) & (lon >= lon_min) & (lon <= lon_max)
 
     mask_stacked = mask.stack(points=grid_dims, create_index=False)
     keep = mask_stacked.compute().values.astype(bool)
@@ -184,8 +208,16 @@ def crop_to_bbox(
         keep = np.zeros(dist2_stacked.shape[0], dtype=bool)
         keep[nearest_idx] = True
 
-        nearest_lat = float(lat.stack(points=grid_dims, create_index=False).isel(points=nearest_idx).values)
-        nearest_lon = float(lon.stack(points=grid_dims, create_index=False).isel(points=nearest_idx).values)
+        nearest_lat = float(
+            lat.stack(points=grid_dims, create_index=False)
+            .isel(points=nearest_idx)
+            .values
+        )
+        nearest_lon = float(
+            lon.stack(points=grid_dims, create_index=False)
+            .isel(points=nearest_idx)
+            .values
+        )
 
         print(
             f"⚠️ Το bbox δεν περιείχε grid point. "
@@ -204,7 +236,7 @@ def crop_to_bbox(
             "points": np.arange(n),
             "lat": ("points", lat_points.values),
             "lon": ("points", lon_points.values),
-        }
+        },
     )
 
     if "time" in ds.coords:
@@ -269,15 +301,17 @@ def main():
             print(f"Using NetCDF variable: {main_var}")
 
             cropped = crop_to_bbox(
-                ds, main_var,
-                cfg["lat_min"], cfg["lat_max"],
-                cfg["lon_min"], cfg["lon_max"]
+                ds,
+                main_var,
+                cfg["lat_min"],
+                cfg["lat_max"],
+                cfg["lon_min"],
+                cfg["lon_max"],
             )
 
             try:
                 cropped.to_netcdf(
-                    out_nc,
-                    encoding={main_var: {"zlib": True, "complevel": 4}}
+                    out_nc, encoding={main_var: {"zlib": True, "complevel": 4}}
                 )
             finally:
                 cropped.close()
@@ -291,6 +325,7 @@ def main():
             zip_path.unlink(missing_ok=True)
         if extract_dir.exists():
             shutil.rmtree(extract_dir)
+
 
 if __name__ == "__main__":
     main()
