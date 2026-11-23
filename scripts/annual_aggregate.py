@@ -5,6 +5,7 @@ import xarray as xr
 
 KELVIN_TO_C = 273.15
 
+
 def open_ds(nc_path: Path) -> xr.Dataset:
     ds = xr.open_dataset(nc_path, decode_times=True)
     if len(ds.data_vars) == 0:
@@ -14,6 +15,7 @@ def open_ds(nc_path: Path) -> xr.Dataset:
         ds.close()
         raise ValueError(f"❌ Could not find 'time' dimension/coordinate in: {nc_path}")
     return ds
+
 
 def is_temperature_var(var_name: str, da: xr.DataArray) -> bool:
     units = str(da.attrs.get("units", "")).strip().lower()
@@ -29,25 +31,32 @@ def is_temperature_var(var_name: str, da: xr.DataArray) -> bool:
         return True
     return False
 
+
 def convert_temperature_k_to_c(da: xr.DataArray) -> xr.DataArray:
     out = da - KELVIN_TO_C
     out.attrs = dict(da.attrs)
     out.attrs["units"] = "C"
-    out.attrs["long_name"] = out.attrs.get("long_name", "Temperature") + " (converted to Celsius)"
+    out.attrs["long_name"] = (
+        out.attrs.get("long_name", "Temperature") + " (converted to Celsius)"
+    )
     return out
+
 
 def convert_precip_flux_to_mm_per_timestep(da: xr.DataArray) -> xr.DataArray:
     out = (da * 86400).astype("float32")
     out.attrs = dict(da.attrs)
     out.attrs["units"] = "mm/day"
-    out.attrs["long_name"] = "Daily precipitation amount derived from mean precipitation flux"
+    out.attrs["long_name"] = (
+        "Daily precipitation amount derived from mean precipitation flux"
+    )
     return out
+
 
 def main():
     input_path = Path(snakemake.input.nc_file)
     output_path = Path(snakemake.output.annual_nc)
     variable = snakemake.wildcards.variable
-    is_precip = (variable == "mean_precipitation_flux")
+    is_precip = variable == "mean_precipitation_flux"
 
     print(f"Aggregating annually for {variable} from {input_path}...")
 
@@ -60,7 +69,9 @@ def main():
             annual = da2.groupby("time.year").sum("time", skipna=True)
             annual.attrs = dict(da2.attrs)
             annual.attrs["units"] = "mm/year"
-            annual.attrs["long_name"] = annual.attrs.get("long_name", "Precipitation") + " (annual total)"
+            annual.attrs["long_name"] = (
+                annual.attrs.get("long_name", "Precipitation") + " (annual total)"
+            )
         else:
             da2 = da
             if is_temperature_var(var_name, da2):
@@ -79,6 +90,7 @@ def main():
     ds.close()
 
     print(f"✅ Saved annual aggregate to: {output_path}")
+
 
 if __name__ == "__main__":
     main()
