@@ -5,7 +5,9 @@ import numpy as np
 import xarray as xr
 
 
-def find_cropped_files_for_period(out_dir: Path, variable: str, start_year: int, end_year: int):
+def find_cropped_files_for_period(
+    out_dir: Path, variable: str, start_year: int, end_year: int
+):
     pattern = re.compile(rf"^{re.escape(variable)}_(\d{{4}})_(\d{{4}})_CROPPED\.nc$")
     selected = []
 
@@ -81,9 +83,7 @@ def main():
 
         # Remove duplicate timestamps, if any.
         if "time" in merged.coords:
-            _, unique_idx = np.unique(
-                merged["time"].values, return_index=True
-            )
+            _, unique_idx = np.unique(merged["time"].values, return_index=True)
             unique_idx = np.sort(unique_idx)
             merged = merged.isel(time=unique_idx)
 
@@ -99,13 +99,15 @@ def main():
         print(f"Main data variable identified: {main_var}")
 
         encoding = {main_var: {"zlib": True, "complevel": 4}}
-        
+
         print(f"Writing final NetCDF to {final_path}...")
         merged.to_netcdf(final_path, encoding=encoding)
 
         # Explicit verification
         if final_path.exists():
-            print(f"SUCCESS: Created final file: {final_path} ({final_path.stat().st_size} bytes)")
+            print(
+                f"SUCCESS: Created final file: {final_path} ({final_path.stat().st_size} bytes)"
+            )
         else:
             raise RuntimeError(f"FAILED: Expected file {final_path} was not created.")
 
