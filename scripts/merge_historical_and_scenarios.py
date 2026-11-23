@@ -4,9 +4,8 @@ import re
 import numpy as np
 import xarray as xr
 
-FILE_RE = re.compile(
-    r"^annual_(mean|sum)_(.+)-(\d{4})-(\d{4})(?:_rcp_(?:45|85))?\.nc$"
-)
+FILE_RE = re.compile(r"^annual_(mean|sum)_(.+)-(\d{4})-(\d{4})(?:_rcp_(?:45|85))?\.nc$")
+
 
 def parse_annual_filename(path: Path):
     m = FILE_RE.match(path.name)
@@ -21,6 +20,7 @@ def parse_annual_filename(path: Path):
         "key": (m.group(1), m.group(2)),
     }
 
+
 def scan_annual_files(folder: Path):
     if not folder.exists():
         return []
@@ -31,12 +31,14 @@ def scan_annual_files(folder: Path):
             records.append(rec)
     return records
 
+
 def detect_annual_dim(ds: xr.Dataset) -> str:
     if "year" in ds.dims or "year" in ds.coords:
         return "year"
     if "time" in ds.dims or "time" in ds.coords:
         return "time"
     raise ValueError("❌ Neither 'year' nor 'time' dimension found in dataset.")
+
 
 def open_and_prepare(path: Path) -> xr.Dataset:
     ds = xr.open_dataset(path, decode_times=True)
@@ -49,6 +51,7 @@ def open_and_prepare(path: Path) -> xr.Dataset:
     ds.attrs["source_file"] = path.name
     return ds
 
+
 def sort_and_remove_duplicate_years(ds: xr.Dataset) -> xr.Dataset:
     annual_dim = detect_annual_dim(ds)
     ds = ds.sortby(annual_dim)
@@ -56,6 +59,7 @@ def sort_and_remove_duplicate_years(ds: xr.Dataset) -> xr.Dataset:
     _, unique_idx = np.unique(values, return_index=True)
     unique_idx = np.sort(unique_idx)
     return ds.isel({annual_dim: unique_idx})
+
 
 def merge_file_records(records):
     records = sorted(records, key=lambda r: (r["start_year"], r["end_year"]))
@@ -76,6 +80,7 @@ def merge_file_records(records):
             except Exception:
                 pass
 
+
 def main():
     scenario = snakemake.wildcards.scenario
     aggregation = snakemake.wildcards.agg_type
@@ -85,10 +90,12 @@ def main():
     scenario_dir = Path(snakemake.params.scenario_dir) / scenario
     hist_dir = Path(snakemake.params.hist_dir)
     out_path = Path(snakemake.output.final_nc)
-    
+
     # ... rest of the script stays exactly the same ...
 
-    print(f"\n🌍 Merging historical + scenario for {scenario} [{aggregation}_{variable_label}]...")
+    print(
+        f"\n🌍 Merging historical + scenario for {scenario} [{aggregation}_{variable_label}]..."
+    )
 
     hist_records = scan_annual_files(hist_dir)
     hist_by_key = {rec["key"]: [] for rec in hist_records}
@@ -103,18 +110,24 @@ def main():
     key = (aggregation, variable_label)
     scen_recs = scen_by_key.get(key, [])
     if not scen_recs:
-        raise FileNotFoundError(f"❌ No annual records found for {key} in {scenario_dir}")
+        raise FileNotFoundError(
+            f"❌ No annual records found for {key} in {scenario_dir}"
+        )
 
     combined_records = hist_by_key.get(key, []) + scen_recs
-    combined_records = sorted(combined_records, key=lambda r: (r["start_year"], r["end_year"]))
+    combined_records = sorted(
+        combined_records, key=lambda r: (r["start_year"], r["end_year"])
+    )
 
     merged = merge_file_records(combined_records)
 
     start_year = min(r["start_year"] for r in combined_records)
     end_year = max(r["end_year"] for r in combined_records)
-    
+
     merged.attrs["scenario"] = scenario
-    merged.attrs["periods"] = "_".join([f"{r['start_year']}-{r['end_year']}" for r in combined_records])
+    merged.attrs["periods"] = "_".join(
+        [f"{r['start_year']}-{r['end_year']}" for r in combined_records]
+    )
     merged.attrs["filename_period"] = f"{start_year}-{end_year}"
 
     encoding = {var: {"zlib": True, "complevel": 4} for var in merged.data_vars}
@@ -123,6 +136,7 @@ def main():
     merged.close()
 
     print(f"✅ Saved final merged file: {out_path}")
+
 
 if __name__ == "__main__":
     main()
