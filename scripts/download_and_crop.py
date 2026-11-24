@@ -171,8 +171,8 @@ def crop_to_bbox(
             )
 
             print(
-                f"⚠️ Το bbox δεν περιείχε grid point. "
-                f"Χρησιμοποιείται το κοντινότερο σημείο στο κέντρο του bbox: "
+                f"⚠️ Bounding box contained no grid points. "
+                f"Using nearest point to bbox center: "
                 f"lat={float(lat.values[lat_idx]):.6f}, lon={float(lon.values[lon_idx]):.6f}"
             )
 
