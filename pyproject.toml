@@ -8,14 +8,14 @@ version = "0.1.0"
 description = "Snakemake workflow for CORDEX climate data processing"
 requires-python = ">=3.10"
 dependencies = [
-    "snakemake",
-    "cdsapi",
-    "python-dotenv",
-    "xarray",
-    "netcdf4",
-    "pandas",
-    "numpy",
-    "dask",
+    "snakemake>=9.0",
+    "cdsapi>=0.7",
+    "python-dotenv>=1.0",
+    "xarray>=2026.9",
+    "netCDF4>=1.7",
+    "pandas>=3.0",
+    "numpy>=2.0",
+    "dask>=2026.8",
 ]
 
 # Explicitly disable package discovery for workflow directories
