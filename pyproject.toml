@@ -16,9 +16,13 @@ dependencies = [
     "pandas",
     "numpy",
     "dask",
-    "distributed",
 ]
 
 # Explicitly disable package discovery for workflow directories
 [tool.setuptools]
 packages = []
+
+[dependency-groups]
+dev = [
+    "black>=26.10.1",
+]
