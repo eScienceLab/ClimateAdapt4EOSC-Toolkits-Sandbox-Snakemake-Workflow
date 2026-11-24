@@ -3,7 +3,6 @@ from pathlib import Path
 import numpy as np
 import xarray as xr
 import cdsapi
-import requests
 import shutil
 
 client = cdsapi.Client(
