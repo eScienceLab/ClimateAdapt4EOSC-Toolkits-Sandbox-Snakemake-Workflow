@@ -1,6 +1,4 @@
-import sys
 from pathlib import Path
-import numpy as np
 import xarray as xr
 
 KELVIN_TO_C = 273.15
