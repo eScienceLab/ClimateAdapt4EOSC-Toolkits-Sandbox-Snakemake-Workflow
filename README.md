@@ -2,7 +2,7 @@
 
 This repository contains a Snakemake workflow for downloading, cropping, merging, and aggregating CORDEX climate data.
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 Follow these steps to set up your environment and install dependencies.
 
@@ -60,6 +60,10 @@ Or you can use the file `.env-example` provided to you. Update your API Key in t
 
 1. **Execute the workflow** using multiple CPU cores:
 ```bash
-snakemake --cores <No. of Cores you want to use>
+snakemake --cores <number_of_cores>
+```
 
+2. **Preview what will run (dry run) - optional:** Check the steps Snakemake plans to take without actually running them or downloading data yet.
+```bash
+snakemake -n --cores <number_of_cores>
 ```
