@@ -115,13 +115,13 @@ def main():
         if merged is not None:
             try:
                 merged.close()
-            except Exception:
+            except (OSError, ValueError):
                 pass
 
         for ds in datasets:
             try:
                 ds.close()
-            except Exception:
+            except (OSError, ValueError):
                 pass
 
     print("\nMerging completed successfully.")
